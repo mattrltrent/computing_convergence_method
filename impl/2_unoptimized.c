@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-// precision param
+// # of bits of precision
 #define K 16
 
 void calculate_lut(double LUT[K]) {
@@ -32,7 +32,7 @@ double log2_CCM(double M) {
 int main() {
     double M = 0.6;  
 
-    printf("unoptimized log2(%f) = %f\n", M, log2_CCM(M));
+    printf("unoptimized ccm log2(%f) = %f\n", M, log2_CCM(M));
 
     return 0;
 }
