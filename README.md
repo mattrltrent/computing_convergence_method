@@ -1,9 +1,23 @@
 # Convergence Computing Method 🚀
 
-**SENG 440 @ [UVIC](https://uvic.ca)**
+SENG 440 @ [UVIC](https://uvic.ca)
 
----
+## Running on a Raspberry Pi
 
-#### Changelog:
-1. fixed to work for .25, this is now called original.c in versions
-2. changed the scalefactor to 2^62 to as many bits of the register for accuracy
+1. Generate SSH keys on your local machine:
+
+    ```bash
+    ssh-keygen -t rsa -b 4096 -C "YOUR_EMAIL_ADDR"
+    ```
+
+2. Copy the public key to the Raspberry Pi:
+
+    ```bash
+    ssh-copy-id -i ~/.ssh/id_rsa.pub PI_NAME@PI_ADDR
+    ```
+
+3. Run the script (do this every time you want to run the program):
+
+    ```bash
+    ./run.sh ENTRY_FILE.c
+    ```
