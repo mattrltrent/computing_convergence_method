@@ -4,8 +4,7 @@
 int main() {
     double M = 0.6;  
 
-    double result = log2(M);
-    printf("Base log2(%f) = %f\n", M, result);
+    printf("base log2(%f) = %f\n", M, log2(M));
 
     return 0;
 }
