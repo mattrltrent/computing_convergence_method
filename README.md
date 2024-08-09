@@ -21,3 +21,11 @@ SENG 440 @ [UVIC](https://uvic.ca)
     ```bash
     ./run.sh ENTRY_FILE.c
     ```
+
+## Accessing the Raspberry Pi
+
+SSH into the Raspberry Pi:
+
+```bash
+ssh PI_NAME@PI_ADDR
+```
