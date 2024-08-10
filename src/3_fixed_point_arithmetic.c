@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <math.h>
 
 // # of bits of precision
 #define K 16
@@ -12,7 +13,7 @@ void calculate_lut(int32_t LUT[K]) {
     }
 }
 
-int32_t log2_CCM(int32_t M) {
+int32_t log2_CCM(int32_t M) {   
     int32_t LUT[K];
     calculate_lut(LUT);
 
