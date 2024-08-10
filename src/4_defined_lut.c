@@ -29,16 +29,17 @@ int32_t log2_CCM(int32_t M) {
 }
 
 int main() {
-    double M_real = 0.6;  
+    // double M_real = 0.6;  
     // convert to fixed-point notation
-    int32_t M_fixed = (int32_t)(M_real * SCALE_FACTOR);
+    // int32_t M_fixed = (int32_t)(M_real * SCALE_FACTOR);
+    int32_t M_fixed = 19660;
 
     int32_t result_fixed = log2_CCM(M_fixed);
 
     // revert to floating-point notation
-    double result_real = (double)result_fixed / SCALE_FACTOR;
+    // double result_real = (double)result_fixed / SCALE_FACTOR;
 
-    printf("optimized fp ccm log2(%f) = %f\n", M_real, result_real);
+    // printf("optimized fp ccm log2(%f) = %f\n", M_real, result_real);
 
     return 0;
 }

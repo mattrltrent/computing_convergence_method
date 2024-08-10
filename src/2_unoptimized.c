@@ -32,7 +32,7 @@ double log2_CCM(double M) {
 int main() {
     double M = 0.6;  
 
-    printf("unoptimized ccm log2(%f) = %f\n", M, log2_CCM(M));
+    // printf("unoptimized ccm log2(%f) = %f\n", M, log2_CCM(M));
 
     return 0;
 }

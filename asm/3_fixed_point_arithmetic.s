@@ -1,4 +1,4 @@
-	.arch armv8-a+crc
+	.arch armv8-a
 	.file	"3_fixed_point_arithmetic.c"
 	.text
 	.align	2

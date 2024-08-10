@@ -1,20 +1,20 @@
-# started on Fri Aug  9 23:43:00 2024
+# started on Sat Aug 10 15:03:16 2024
 
 
  Performance counter stats for '/home/matthew/remote_computing_convergence_method/src/3_fixed_point_arithmetic.out':
 
-              1.06 msec task-clock:u                     #    0.620 CPUs utilized             
+              0.93 msec task-clock:u                     #    0.575 CPUs utilized             
                  0      context-switches:u               #    0.000 /sec                      
                  0      cpu-migrations:u                 #    0.000 /sec                      
-                55      page-faults:u                    #   51.813 K/sec                     
-           394,486      cycles:u                         #    0.372 GHz                       
-           108,370      instructions:u                   #    0.27  insn per cycle            
+                50      page-faults:u                    #   53.720 K/sec                     
+           340,652      cycles:u                         #    0.366 GHz                       
+           101,729      instructions:u                   #    0.30  insn per cycle            
    <not supported>      branches:u                                                            
-             2,530      branch-misses:u                                                       
+             2,275      branch-misses:u                                                       
 
-       0.001712612 seconds time elapsed
+       0.001618742 seconds time elapsed
 
-       0.001940000 seconds user
+       0.001845000 seconds user
        0.000000000 seconds sys
 
 

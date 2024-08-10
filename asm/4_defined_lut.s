@@ -1,4 +1,4 @@
-	.arch armv8-a+crc
+	.arch armv8-a
 	.file	"4_defined_lut.c"
 	.text
 	.align	2

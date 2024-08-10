@@ -1,9 +1,9 @@
-	.arch armv8-a+crc
+	.arch armv8-a
 	.file	"5_general_optimizations.c"
 	.text
 	.section	.rodata.str1.8,"aMS",@progbits,1
 	.align	3
-.LC1:
+.LC0:
 	.string	"optimized fp ccm log2(%f) = %f\n"
 	.section	.text.startup,"ax",@progbits
 	.align	2
@@ -11,7 +11,7 @@
 	.global	main
 	.type	main, %function
 main:
-.LFB11:
+.LFB4361:
 	.cfi_startproc
 	mov	x2, 163827232538624
 	mov	x1, 3689348814741910323
@@ -20,9 +20,9 @@ main:
 	.cfi_offset 30, -16
 	movk	x2, 0xbfe7, lsl 48
 	movk	x1, 0x3fe3, lsl 48
-	adrp	x0, .LC1
+	adrp	x0, .LC0
 	fmov	d1, x2
-	add	x0, x0, :lo12:.LC1
+	add	x0, x0, :lo12:.LC0
 	fmov	d0, x1
 	bl	printf
 	ldr	x30, [sp], 16
@@ -31,7 +31,7 @@ main:
 	mov	w0, 0
 	ret
 	.cfi_endproc
-.LFE11:
+.LFE4361:
 	.size	main, .-main
 	.ident	"GCC: (Debian 12.2.0-14) 12.2.0"
 	.section	.note.GNU-stack,"",@progbits

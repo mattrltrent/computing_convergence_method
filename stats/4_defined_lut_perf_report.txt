@@ -1,20 +1,20 @@
-# started on Sat Aug 10 00:18:31 2024
+# started on Sat Aug 10 15:03:22 2024
 
 
  Performance counter stats for '/home/matthew/remote_computing_convergence_method/src/4_defined_lut.out':
 
-              0.90 msec task-clock:u                     #    0.553 CPUs utilized             
+              0.77 msec task-clock:u                     #    0.524 CPUs utilized             
                  0      context-switches:u               #    0.000 /sec                      
                  0      cpu-migrations:u                 #    0.000 /sec                      
-                46      page-faults:u                    #   51.294 K/sec                     
-           334,112      cycles:u                         #    0.373 GHz                       
-            87,238      instructions:u                   #    0.26  insn per cycle            
+                40      page-faults:u                    #   51.701 K/sec                     
+           287,259      cycles:u                         #    0.371 GHz                       
+            80,628      instructions:u                   #    0.28  insn per cycle            
    <not supported>      branches:u                                                            
-             2,047      branch-misses:u                                                       
+             1,832      branch-misses:u                                                       
 
-       0.001620764 seconds time elapsed
+       0.001475209 seconds time elapsed
 
-       0.001832000 seconds user
-       0.000000000 seconds sys
+       0.000000000 seconds user
+       0.001718000 seconds sys
 
 

@@ -34,7 +34,9 @@ mkdir -p "$LOCAL_ASM_DIR" "$LOCAL_STATS_DIR"
 ssh -i $SSH_KEY $PI_USER@$PI_HOST "mkdir -p $DEST_DIR/src"
 scp -i $SSH_KEY "$FILE_PATH" $PI_USER@$PI_HOST:$DEST_DIR/src/
 
-ssh -i $SSH_KEY $PI_USER@$PI_HOST "gcc -S -mcpu=cortex-a72 -O3 -fno-stack-protector -fomit-frame-pointer $GCC_FLAGS -o $ASM_FILE $PI_PATH -lm"
+# ssh -i $SSH_KEY $PI_USER@$PI_HOST "gcc -S -mcpu=cortex-a72 -O3 -fno-stack-protector -fomit-frame-pointer $GCC_FLAGS -o $ASM_FILE $PI_PATH -lm"
+ssh -i $SSH_KEY $PI_USER@$PI_HOST "gcc -mcpu=cortex-a72 -O3 -fno-stack-protector -fomit-frame-pointer -march=armv8-a -fprefetch-loop-arrays -mtune=cortex-a72 -ftree-vectorize -funroll-loops $GCC_FLAGS -o $OUT_FILE $PI_PATH -lm"
+# ssh -i $SSH_KEY $PI_USER@$PI_HOST "gcc $GCC_FLAGS -o $OUT_FILE $PI_PATH -lm"
 
 COMPILATION_STATUS=$?
 if [ $COMPILATION_STATUS -ne 0 ]; then
@@ -45,7 +47,9 @@ fi
 scp -i $SSH_KEY $PI_USER@$PI_HOST:$ASM_FILE "$LOCAL_ASM_DIR/"
 cat "$LOCAL_ASM_DIR/$(basename $ASM_FILE)"
 
-ssh -i $SSH_KEY $PI_USER@$PI_HOST "gcc -mcpu=cortex-a72 -O3 -fno-stack-protector -fomit-frame-pointer $GCC_FLAGS -o $OUT_FILE $PI_PATH -lm"
+# ssh -i $SSH_KEY $PI_USER@$PI_HOST "gcc -mcpu=cortex-a72 -O3 -fno-stack-protector -fomit-frame-pointer $GCC_FLAGS -o $OUT_FILE $PI_PATH -lm"
+ssh -i $SSH_KEY $PI_USER@$PI_HOST "gcc -S -mcpu=cortex-a72 -O3 -fno-stack-protector -fomit-frame-pointer -march=armv8-a -fprefetch-loop-arrays -mtune=cortex-a72 -ftree-vectorize -funroll-loops $GCC_FLAGS -o $ASM_FILE $PI_PATH -lm"
+# ssh -i $SSH_KEY $PI_USER@$PI_HOST "gcc -S $GCC_FLAGS -o $ASM_FILE $PI_PATH -lm"
 
 COMPILATION_STATUS=$?
 if [ $COMPILATION_STATUS -ne 0 ]; then

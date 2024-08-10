@@ -1,20 +1,20 @@
-# started on Fri Aug  9 23:13:43 2024
+# started on Sat Aug 10 15:02:53 2024
 
 
  Performance counter stats for '/home/matthew/remote_computing_convergence_method/src/1_base.out':
 
-              0.78 msec task-clock:u                     #    0.532 CPUs utilized             
+              0.91 msec task-clock:u                     #    0.566 CPUs utilized             
                  0      context-switches:u               #    0.000 /sec                      
                  0      cpu-migrations:u                 #    0.000 /sec                      
-                40      page-faults:u                    #   51.375 K/sec                     
-           285,375      cycles:u                         #    0.367 GHz                       
-            80,621      instructions:u                   #    0.28  insn per cycle            
+                48      page-faults:u                    #   52.913 K/sec                     
+           333,798      cycles:u                         #    0.368 GHz                       
+            98,482      instructions:u                   #    0.30  insn per cycle            
    <not supported>      branches:u                                                            
-             1,825      branch-misses:u                                                       
+             2,249      branch-misses:u                                                       
 
-       0.001462968 seconds time elapsed
+       0.001602983 seconds time elapsed
 
-       0.001674000 seconds user
+       0.001815000 seconds user
        0.000000000 seconds sys
 
 

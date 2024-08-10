@@ -1,20 +1,20 @@
-# started on Sat Aug 10 03:22:16 2024
+# started on Sat Aug 10 15:03:29 2024
 
 
  Performance counter stats for '/home/matthew/remote_computing_convergence_method/src/5_general_optimizations.out':
 
-              0.88 msec task-clock:u                     #    0.581 CPUs utilized             
+              0.77 msec task-clock:u                     #    0.525 CPUs utilized             
                  0      context-switches:u               #    0.000 /sec                      
                  0      cpu-migrations:u                 #    0.000 /sec                      
-                47      page-faults:u                    #   53.539 K/sec                     
-           324,788      cycles:u                         #    0.370 GHz                       
-            87,238      instructions:u                   #    0.27  insn per cycle            
+                40      page-faults:u                    #   52.095 K/sec                     
+           285,814      cycles:u                         #    0.372 GHz                       
+            80,632      instructions:u                   #    0.28  insn per cycle            
    <not supported>      branches:u                                                            
-             1,993      branch-misses:u                                                       
+             1,759      branch-misses:u                                                       
 
-       0.001511898 seconds time elapsed
+       0.001463912 seconds time elapsed
 
-       0.001729000 seconds user
+       0.001666000 seconds user
        0.000000000 seconds sys
 
 
