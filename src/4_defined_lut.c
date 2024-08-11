@@ -16,6 +16,7 @@ const int32_t LUT[K-1] = {
 int32_t log2_CCM(int32_t M) {
     int32_t f = 0; 
 
+    // iter from 0 to K-1
     for (int i = 0; i < K - 1; i++) {
         int32_t u = M + (M >> i);  
         int32_t phi = f - LUT[i];
@@ -33,6 +34,7 @@ int main() {
     // double M_real = 0.6;  
     // convert to fixed-point notation
     // int32_t M_fixed = (int32_t)(M_real * SCALE_FACTOR);
+
     // dummy scaled value for testing
     int32_t M_fixed = 19660;
 

@@ -4,6 +4,10 @@
 #include <stdlib.h>
 #include <arm_neon.h>
 
+// !
+// NOTE: This file's docs are intentionally not great because it's cloned from the `5_general_optimizations.c` file, just with a tester.
+// !
+
 #define K 16
 #define SCALE_FACTOR (1 << (K - 1))
 
@@ -58,16 +62,24 @@ int main() {
     double total_percentage_difference = 0.0;
 
     for (int i = 0; i < NUM_TESTS; i++) {
+        // between 0 and 100
         double input_value = (double)rand() / (double)RAND_MAX;
+
+        // scale to be between 0 and 100
         input_value *= 100.0;
 
 
+        // check my version
         double ccm_result = ccm(input_value);
+
+        // check real true value
         double math_log2_result = log2(input_value);
 
+        // get percent difference
         double percentage_difference = fabs((ccm_result - math_log2_result) / math_log2_result) * 100.0;
         total_percentage_difference += percentage_difference;
 
+        // log
         printf("TEST CASE %d:\n-----\n", i + 1);
         printf("Randomly chosen input: %f\n", input_value);
         printf("CCM log2: %f\n", ccm_result);

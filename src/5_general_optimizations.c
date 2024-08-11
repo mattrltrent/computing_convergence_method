@@ -11,9 +11,11 @@ int main()
     double real_input = 22;
     register int32_t M = (int32_t)(real_input * SCALE_FACTOR);
 
+    // init to 0
     register int32_t f = 0;
 
     // defining the LUT arrays separately
+    // from python script
     int32_t LUT_array1[4] = {32768, 19168, 10548, 5568};
     int32_t LUT_array2[4] = {2865, 1454, 732, 367};
     int32_t LUT_array3[4] = {184, 92, 46, 23};
@@ -21,19 +23,26 @@ int main()
 
     // load the LUT into NEON vectors
     int32x4_t LUT_vec[4] = {
+        // v1
         vld1q_s32(LUT_array1),
+        // v2
         vld1q_s32(LUT_array2),
+        // v3
         vld1q_s32(LUT_array3),
+        // v4 with dummy padding of 128/4 on the right side (32 bit)
         vld1q_s32(LUT_array4)};
 
     // normalization of M to range
     int shifts = 0;
     while (M >= SCALE_FACTOR)
     {
+        // keep shifting till within range
         M >>= 1;
+        // inc shift to make reversible later
         shifts++;
     }
 
+    // double loop
     for (register int i = 0; !(i & 16); i += 2)
     {
         // NEON to LUT value #1 for unroll 1

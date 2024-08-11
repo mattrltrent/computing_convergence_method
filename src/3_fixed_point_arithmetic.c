@@ -20,6 +20,7 @@ int32_t log2_CCM(int32_t M) {
     // dynamic LUT
     calculate_lut(LUT);
 
+    // init to 0
     int32_t f = 0; 
 
     for (int i = 0; i < K - 1; i++) {

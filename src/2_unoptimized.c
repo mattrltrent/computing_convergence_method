@@ -23,7 +23,9 @@ double log2_CCM(double M) {
         double u = M * (1 + pow(2, -i)); 
         double phi = f - LUT[i];  
 
+        // conditional
         if (u <= 1.0) {
+            // update if u is less than or equal to 1
             M = u;
             f = phi;
         }
