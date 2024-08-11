@@ -4,7 +4,7 @@
 	.section	.rodata.str1.8,"aMS",@progbits,1
 	.align	3
 .LC0:
-	.string	"optimized fp ccm log2(%f) = %f\n"
+	.string	"ccm log2(%d) = %d\n"
 	.section	.text.startup,"ax",@progbits
 	.align	2
 	.p2align 4,,15
@@ -13,17 +13,13 @@
 main:
 .LFB4361:
 	.cfi_startproc
-	mov	x2, 163827232538624
-	mov	x1, 3689348814741910323
+	adrp	x0, .LC0
+	mov	w2, -24148
 	str	x30, [sp, -16]!
 	.cfi_def_cfa_offset 16
 	.cfi_offset 30, -16
-	movk	x2, 0xbfe7, lsl 48
-	movk	x1, 0x3fe3, lsl 48
-	adrp	x0, .LC0
-	fmov	d1, x2
+	mov	w1, 19660
 	add	x0, x0, :lo12:.LC0
-	fmov	d0, x1
 	bl	printf
 	ldr	x30, [sp], 16
 	.cfi_restore 30

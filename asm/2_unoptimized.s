@@ -116,37 +116,20 @@ log2_CCM:
 	.cfi_endproc
 .LFE1:
 	.size	log2_CCM, .-log2_CCM
-	.section	.rodata
-	.align	3
-.LC0:
-	.string	"unoptimized ccm log2(%f) = %f\n"
-	.text
 	.align	2
 	.global	main
 	.type	main, %function
 main:
 .LFB2:
 	.cfi_startproc
-	stp	x29, x30, [sp, -32]!
-	.cfi_def_cfa_offset 32
-	.cfi_offset 29, -32
-	.cfi_offset 30, -24
-	mov	x29, sp
+	sub	sp, sp, #16
+	.cfi_def_cfa_offset 16
 	mov	x0, 3689348814741910323
 	movk	x0, 0x3fe3, lsl 48
 	fmov	d0, x0
-	str	d0, [sp, 24]
-	ldr	d0, [sp, 24]
-	bl	log2_CCM
-	fmov	d1, d0
-	ldr	d0, [sp, 24]
-	adrp	x0, .LC0
-	add	x0, x0, :lo12:.LC0
-	bl	printf
+	str	d0, [sp, 8]
 	mov	w0, 0
-	ldp	x29, x30, [sp], 32
-	.cfi_restore 30
-	.cfi_restore 29
+	add	sp, sp, 16
 	.cfi_def_cfa_offset 0
 	ret
 	.cfi_endproc

@@ -8,9 +8,8 @@
 int main()
 {   
     // conversion to fixed-point notation
-    // double input_value = 0.6;
-    // register int32_t M = (int32_t)(input_value * SCALE_FACTOR);
-    register int32_t M = 19660;
+    double real_input = 22;
+    register int32_t M = (int32_t)(real_input * SCALE_FACTOR);
 
     register int32_t f = 0;
 
@@ -18,7 +17,7 @@ int main()
     int32_t LUT_array1[4] = {32768, 19168, 10548, 5568};
     int32_t LUT_array2[4] = {2865, 1454, 732, 367};
     int32_t LUT_array3[4] = {184, 92, 46, 23};
-    int32_t LUT_array4[4] = {11, 5, 2, -1};
+    int32_t LUT_array4[4] = {11, 5, 2, -1}; // -1 to represent we don't use this place of the array, but have the space (for alignment)
 
     // load the LUT into NEON vectors
     int32x4_t LUT_vec[4] = {
@@ -27,10 +26,12 @@ int main()
         vld1q_s32(LUT_array3),
         vld1q_s32(LUT_array4)};
 
-    // normalization of M to range [0.5, 1.0)
-    while (M < (SCALE_FACTOR >> 1))
+    // normalization of M to range
+    int shifts = 0;
+    while (M >= SCALE_FACTOR)
     {
-        M <<= 1;
+        M >>= 1;
+        shifts++;
     }
 
     for (register int i = 0; !(i & 16); i += 2)
@@ -56,7 +57,9 @@ int main()
         }
     }
 
-    // printf("optimized fp ccm log2(%f) = %f\n", 0.6, (double)f / SCALE_FACTOR);
+    // denormalize the fixed-point value
+    f += shifts << 15; // K - 1 = 15
+    printf("optimized fp ccm log2(%f) = %f\n", 0.6, (double)f / SCALE_FACTOR);
 
     return 0;
 }

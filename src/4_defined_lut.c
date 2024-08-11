@@ -12,6 +12,7 @@ const int32_t LUT[K-1] = {
     367, 184, 92, 46, 23, 11, 5, 2
 };
 
+// ccm now with fixed point
 int32_t log2_CCM(int32_t M) {
     int32_t f = 0; 
 
@@ -32,9 +33,14 @@ int main() {
     // double M_real = 0.6;  
     // convert to fixed-point notation
     // int32_t M_fixed = (int32_t)(M_real * SCALE_FACTOR);
+    // dummy scaled value for testing
     int32_t M_fixed = 19660;
 
+    // call the optimized CCM log2 function
     int32_t result_fixed = log2_CCM(M_fixed);
+
+    // get output
+    printf("ccm log2(%d) = %d\n", M_fixed, result_fixed);
 
     // revert to floating-point notation
     // double result_real = (double)result_fixed / SCALE_FACTOR;
