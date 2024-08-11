@@ -6,6 +6,7 @@ SENG 440 @ [UVIC](https://uvic.ca)
 
 - Lots of this project's files are generated, or are not meant to be "final" since we tweak them often.
 - The "final" optimized code is in `~/src/5_general_optimizations.c`.
+- Please view the [report](https://hackmd.io/@mattrltrent/SJbsLhMq0) for details on what files looked like at each time.
 
 ## Running on a Raspberry Pi
 
